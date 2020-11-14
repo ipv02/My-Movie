@@ -13,6 +13,9 @@
 		84500396255FE83100968CBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84500394255FE83100968CBD /* Main.storyboard */; };
 		84500398255FE83300968CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84500397255FE83300968CBD /* Assets.xcassets */; };
 		8450039B255FE83300968CBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84500399255FE83300968CBD /* LaunchScreen.storyboard */; };
+		845003B22560586200968CBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845003B12560586200968CBD /* SignUpViewController.swift */; };
+		845003B9256068F000968CBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845003B8256068F000968CBD /* LoginViewController.swift */; };
+		845003BC25606C5000968CBD /* CustomizeGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845003BB25606C5000968CBD /* CustomizeGoogleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		84500397255FE83300968CBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8450039A255FE83300968CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8450039C255FE83300968CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		845003B12560586200968CBD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		845003B8256068F000968CBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		845003BB25606C5000968CBD /* CustomizeGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeGoogleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 			children = (
 				845003A5255FE8C000968CBD /* Models */,
 				845003A4255FE8B200968CBD /* ViewControllers */,
+				845003BE25606E6200968CBD /* Extensions */,
 				845003A6255FE8CB00968CBD /* Storyboards */,
 				845003AA255FE94D00968CBD /* Services */,
 				845003A9255FE91900968CBD /* Source */,
@@ -70,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				84500392255FE83100968CBD /* AuthViewController.swift */,
+				845003B12560586200968CBD /* SignUpViewController.swift */,
+				845003B8256068F000968CBD /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -113,6 +122,14 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		845003BE25606E6200968CBD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				845003BB25606C5000968CBD /* CustomizeGoogleButton.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,8 +202,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845003BC25606C5000968CBD /* CustomizeGoogleButton.swift in Sources */,
 				84500393255FE83100968CBD /* AuthViewController.swift in Sources */,
 				8450038F255FE83100968CBD /* AppDelegate.swift in Sources */,
+				845003B22560586200968CBD /* SignUpViewController.swift in Sources */,
+				845003B9256068F000968CBD /* LoginViewController.swift in Sources */,
 				84500391255FE83100968CBD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
