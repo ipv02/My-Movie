@@ -43,7 +43,15 @@ class AuthViewController: UIViewController {
         loginButton.layer.shadowOpacity = 0.2
         loginButton.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
-
-
+    
+    //MARK: IB Action
+    @IBAction func emailButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "signUp", sender: nil)
+    }
+    
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "logIn", sender: nil)
+    }
+    
 }
 
