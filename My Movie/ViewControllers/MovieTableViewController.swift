@@ -9,10 +9,10 @@ import UIKit
 
 class MovieTableViewController: UITableViewController {
     
-    let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
+    private let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
     
-    var popular: Popular?
-    var popularMovies: [Result] = []
+    private var popular: Popular?
+    private var popularMovies: [Result] = []
     
     
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -40,7 +40,7 @@ class MovieTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieTableViewCell
         
         let popularResult = (popular?.results![indexPath.row])!
-        cell.cinfigureCell(for: popularResult )
+        cell.configure(for: popularResult)
 
 
         return cell
