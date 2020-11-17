@@ -9,26 +9,29 @@ import UIKit
 
 class MovieTableViewController: UITableViewController {
     
-    private let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
+    private let urlStringPopular = "https://api.themoviedb.org/3/movie/popular?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
+    private let urlStringTopList = "https://api.themoviedb.org/3/movie/top_rated?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
+    private let urlStringUpcoming = "https://api.themoviedb.org/3/movie/upcoming?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
     
     private var popular: Popular?
-    private var popularMovies: [Result] = []
+    private var topList: TopList?
+    private var upcoming: Upcoming?
     
     
     @IBOutlet var segmentedControl: UISegmentedControl!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 100
         
-        NetworkManager.shared.fetchPopularMovie(from: urlString) { popular  in
+        NetworkManager.shared.fetchPopularMovie(from: urlStringPopular) { popular  in
             DispatchQueue.main.async {
                 self.popular = popular
                 self.tableView.reloadData()
             }
         }
-        
     }
 
     // MARK: - Table view data source
@@ -39,48 +42,25 @@ class MovieTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieTableViewCell
         
-        let popularResult = (popular?.results![indexPath.row])!
-        cell.configure(for: popularResult)
+//        let popularResult = (popular?.results![indexPath.row])!
+//        cell.configure(for: popularResult)
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let popularResult = (popular?.results![indexPath.row])!
+            cell.configure(for: popularResult)
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+            let topListResults = (topList?.results![indexPath.row])!
+            cell.configureTopListCell(for: topListResults)
+        } else {
+            let upcomingResult = (upcoming?.results![indexPath.row])!
+            cell.configureUpcomingCell(for: upcomingResult)
+        }
 
 
         return cell
     }
 
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation
@@ -93,14 +73,33 @@ class MovieTableViewController: UITableViewController {
     */
 
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            //NetworkManager.shared.fetchPopularMovie()
-        } else if sender.selectedSegmentIndex == 1 {
-            
-        } else if sender.selectedSegmentIndex == 2 {
-            
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            NetworkManager.shared.fetchPopularMovie(from: urlStringPopular) { popular in
+                DispatchQueue.main.async {
+                    self.popular = popular
+                    self.tableView.reloadData()
+                }
+            }
+        case 1:
+            NetworkManager.shared.fetchTopListMovie(from: urlStringTopList) { topList in
+                DispatchQueue.main.async {
+                    self.topList = topList
+                    self.tableView.reloadData()
+                }
+            }
+        case 2:
+            NetworkManager.shared.fetchUpcomingMovie(from: urlStringUpcoming) { upcoming in
+                DispatchQueue.main.async {
+                    self.upcoming = upcoming
+                    self.tableView.reloadData()
         }
         
         
+    }
+        default:
+            break
+        }
     }
 }

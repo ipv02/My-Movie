@@ -20,6 +20,10 @@
 		845FF3B22561B7BF00932F28 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3B12561B7BF00932F28 /* MovieTableViewCell.swift */; };
 		845FF3B52561BB5600932F28 /* Popular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3B42561BB5600932F28 /* Popular.swift */; };
 		845FF3B82561C95C00932F28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3B72561C95C00932F28 /* NetworkManager.swift */; };
+		845FF3C32563172300932F28 /* TopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3C22563172300932F28 /* TopList.swift */; };
+		845FF3CA2564539000932F28 /* Upcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3C92564539000932F28 /* Upcoming.swift */; };
+		845FF3CD25645B2700932F28 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3CC25645B2700932F28 /* ImageView.swift */; };
+		845FF3D025645B5D00932F28 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3CF25645B5D00932F28 /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		845FF3B12561B7BF00932F28 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		845FF3B42561BB5600932F28 /* Popular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popular.swift; sourceTree = "<group>"; };
 		845FF3B72561C95C00932F28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		845FF3C22563172300932F28 /* TopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopList.swift; sourceTree = "<group>"; };
+		845FF3C92564539000932F28 /* Upcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upcoming.swift; sourceTree = "<group>"; };
+		845FF3CC25645B2700932F28 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		845FF3CF25645B5D00932F28 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				845FF3B42561BB5600932F28 /* Popular.swift */,
+				845FF3C22563172300932F28 /* TopList.swift */,
+				845FF3C92564539000932F28 /* Upcoming.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				845FF3B72561C95C00932F28 /* NetworkManager.swift */,
+				845FF3CF25645B5D00932F28 /* ImageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -156,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				845FF3B12561B7BF00932F28 /* MovieTableViewCell.swift */,
+				845FF3CC25645B2700932F28 /* ImageView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -230,16 +242,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845FF3C32563172300932F28 /* TopList.swift in Sources */,
 				845003BC25606C5000968CBD /* CustomizeGoogleButton.swift in Sources */,
 				84500393255FE83100968CBD /* AuthViewController.swift in Sources */,
 				845FF3B82561C95C00932F28 /* NetworkManager.swift in Sources */,
+				845FF3CD25645B2700932F28 /* ImageView.swift in Sources */,
 				8450038F255FE83100968CBD /* AppDelegate.swift in Sources */,
 				845003B22560586200968CBD /* SignUpViewController.swift in Sources */,
 				845003B9256068F000968CBD /* LoginViewController.swift in Sources */,
 				845FF3B52561BB5600932F28 /* Popular.swift in Sources */,
+				845FF3D025645B5D00932F28 /* ImageManager.swift in Sources */,
 				84500391255FE83100968CBD /* SceneDelegate.swift in Sources */,
 				845FF3B22561B7BF00932F28 /* MovieTableViewCell.swift in Sources */,
 				845FF3AE2561B73200932F28 /* MovieTableViewController.swift in Sources */,
+				845FF3CA2564539000932F28 /* Upcoming.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
