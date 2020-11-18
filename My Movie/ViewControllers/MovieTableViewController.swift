@@ -18,6 +18,7 @@ class MovieTableViewController: UITableViewController {
     private var upcoming: Upcoming?
     
     
+    
     @IBOutlet var segmentedControl: UISegmentedControl!
     
     
@@ -46,13 +47,16 @@ class MovieTableViewController: UITableViewController {
 //        cell.configure(for: popularResult)
         
         if segmentedControl.selectedSegmentIndex == 0 {
-            let popularResult = (popular?.results![indexPath.row])!
-            cell.configure(for: popularResult)
+            guard let popularResult = popular?.results?[indexPath.row] else { return cell }
+            //let popularResult = (popular?.results![indexPath.row])!
+            cell.configurePopularCell(for: popularResult)
         } else if segmentedControl.selectedSegmentIndex == 1 {
-            let topListResults = (topList?.results![indexPath.row])!
+            guard let topListResults = topList?.results?[indexPath.row] else { return cell }
+            //let topListResults = (topList?.results![indexPath.row])!
             cell.configureTopListCell(for: topListResults)
         } else {
-            let upcomingResult = (upcoming?.results![indexPath.row])!
+            guard let upcomingResult = upcoming?.results?[indexPath.row] else { return cell }
+            //let upcomingResult = (upcoming?.results![indexPath.row])!
             cell.configureUpcomingCell(for: upcomingResult)
         }
 

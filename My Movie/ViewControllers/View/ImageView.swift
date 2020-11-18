@@ -26,8 +26,6 @@ class ImageView: UIImageView {
         }
     }
     
-    
-    
     private func getCachedImage(url: URL) -> UIImage? {
         let urlRequest = URLRequest(url: url)
         if let cachedResponse = URLCache.shared.cachedResponse(for: urlRequest) {
