@@ -43,38 +43,34 @@ class MovieTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieTableViewCell
         
-//        let popularResult = (popular?.results![indexPath.row])!
-//        cell.configure(for: popularResult)
-        
         if segmentedControl.selectedSegmentIndex == 0 {
             guard let popularResult = popular?.results?[indexPath.row] else { return cell }
-            //let popularResult = (popular?.results![indexPath.row])!
             cell.configurePopularCell(for: popularResult)
         } else if segmentedControl.selectedSegmentIndex == 1 {
             guard let topListResults = topList?.results?[indexPath.row] else { return cell }
-            //let topListResults = (topList?.results![indexPath.row])!
             cell.configureTopListCell(for: topListResults)
         } else {
             guard let upcomingResult = upcoming?.results?[indexPath.row] else { return cell }
-            //let upcomingResult = (upcoming?.results![indexPath.row])!
             cell.configureUpcomingCell(for: upcomingResult)
         }
 
-
         return cell
     }
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: - Table View delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
+
+
+
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let detailsMovieVC = segue.destination as! DetailsMovieViewController
+        detailsMovieVC.resultPopular = popular?.results?[indexPath.row]
+
+    }
 
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         
