@@ -9,6 +9,8 @@ import UIKit
 
 class MovieTableViewController: UITableViewController {
     
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    
     private let urlStringPopular = "https://api.themoviedb.org/3/movie/popular?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
     private let urlStringTopList = "https://api.themoviedb.org/3/movie/top_rated?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
     private let urlStringUpcoming = "https://api.themoviedb.org/3/movie/upcoming?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
@@ -16,10 +18,6 @@ class MovieTableViewController: UITableViewController {
     private var popular: Popular?
     private var topList: TopList?
     private var upcoming: Upcoming?
-    
-    
-    
-    @IBOutlet var segmentedControl: UISegmentedControl!
     
     
     override func viewDidLoad() {

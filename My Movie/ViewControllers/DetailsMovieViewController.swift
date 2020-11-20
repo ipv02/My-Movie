@@ -1,6 +1,7 @@
 
 import UIKit
 
+
 class DetailsMovieViewController: UIViewController {
     
     @IBOutlet var movieImageView: ImageView!
@@ -9,7 +10,9 @@ class DetailsMovieViewController: UIViewController {
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
+    
     var resultPopular: ResultPopular!
+    var video: Video?
     
     
     override func viewDidLoad() {
@@ -19,11 +22,21 @@ class DetailsMovieViewController: UIViewController {
         
         movieImageView.fetchImage(from: "https://image.tmdb.org/t/p/w500/\(resultPopular.posterPath ?? "")")
         nameLabel.text = resultPopular.title
-
+        overviewLabel.text = resultPopular.overview
+        
     }
     
 
 
+    @IBAction func playButtonAction(_ sender: Any) {
+        
+        NetworkManager.shared.fetchMovieVideo(from: "https://api.themoviedb.org/3/movie/\(resultPopular.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { (video) in
+            DispatchQueue.main.async {
+                self.video = video
+            }
+        }
+        
+    }
 }
 
 extension DetailsMovieViewController: UITabBarDelegate, UITableViewDataSource {
