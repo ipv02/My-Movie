@@ -10,8 +10,8 @@ class DetailsMovieViewController: UIViewController {
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
-    
     var resultPopular: ResultPopular!
+    
     var video: Video?
     
     
@@ -24,22 +24,28 @@ class DetailsMovieViewController: UIViewController {
         nameLabel.text = resultPopular.title
         overviewLabel.text = resultPopular.overview
         
+        
+        NetworkManager.shared.fetchMovieVideo(from: "https://api.themoviedb.org/3/movie/\(resultPopular?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
+            self.video = video
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "videoSegue" {
+            let videoVC = segue.destination as! VideoViewController
+            videoVC.resultVideo = video?.results?.first
+        }
     }
     
 
-
     @IBAction func playButtonAction(_ sender: Any) {
-        
-        NetworkManager.shared.fetchMovieVideo(from: "https://api.themoviedb.org/3/movie/\(resultPopular.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { (video) in
-            DispatchQueue.main.async {
-                self.video = video
-            }
-        }
+        performSegue(withIdentifier: "videoSegue", sender: nil)
         
     }
 }
 
-extension DetailsMovieViewController: UITabBarDelegate, UITableViewDataSource {
+extension DetailsMovieViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0

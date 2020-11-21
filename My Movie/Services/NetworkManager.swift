@@ -74,24 +74,24 @@ class NetworkManager {
     }
     
     func fetchMovieVideo(from urlString: String, with completion: @escaping (Video) -> Void) {
-        
+
         guard let url = URL(string: urlString) else { return }
-        
+
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {print(error); return }
-            
+
             guard let data = data else { return }
-            
+
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
+
             do {
                 let video = try decoder.decode(Video.self, from: data)
                 completion(video)
             } catch let error {
                 print(error.localizedDescription)
             }
-            
+
         }.resume()
     }
 }

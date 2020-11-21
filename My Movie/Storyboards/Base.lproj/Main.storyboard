@@ -380,7 +380,6 @@
                                                         <state key="normal" title="Button" image="PlayButton"/>
                                                         <connections>
                                                             <action selector="playButtonAction:" destination="ajn-pU-ySW" eventType="touchUpInside" id="eWz-bp-4Uy"/>
-                                                            <segue destination="1Om-YA-Zb9" kind="show" id="YJ5-bX-p46"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-ry-6cD">
@@ -458,21 +457,22 @@
                         <outlet property="overviewLabel" destination="yXO-8N-rjp" id="8mg-c0-hHf"/>
                         <outlet property="playButton" destination="hSJ-y3-vZ1" id="PFU-Vd-B9o"/>
                         <outlet property="tableView" destination="xmw-eI-FHK" id="YUu-pk-KyK"/>
+                        <segue destination="1Om-YA-Zb9" kind="show" identifier="videoSegue" id="vfY-nU-asG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4f3-AD-vkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4006" y="-812"/>
         </scene>
-        <!--View Controller-->
+        <!--Video View Controller-->
         <scene sceneID="GVi-LG-DtX">
             <objects>
-                <viewController id="1Om-YA-Zb9" sceneMemberID="viewController">
+                <viewController id="1Om-YA-Zb9" customClass="VideoViewController" customModule="My_Movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="khM-PM-prM">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGj-5f-2e1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGj-5f-2e1" customClass="YTPlayerView">
                                 <rect key="frame" x="0.0" y="272" width="390" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -482,13 +482,16 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v48-6v-UUn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RGj-5f-2e1" firstAttribute="centerX" secondItem="khM-PM-prM" secondAttribute="centerX" id="Cz8-QM-wGz"/>
                             <constraint firstItem="RGj-5f-2e1" firstAttribute="centerY" secondItem="khM-PM-prM" secondAttribute="centerY" id="zB0-Yu-XbP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ugY-Z9-YA9"/>
+                    <connections>
+                        <outlet property="playerView" destination="RGj-5f-2e1" id="JW3-WP-aDz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp0-E2-sJv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
