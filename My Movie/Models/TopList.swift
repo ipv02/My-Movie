@@ -14,10 +14,10 @@ struct ResultTop: Decodable {
     //var adult: Bool!
     //var backdropPath: String!
     //var genreIds: [Int]!
-    //var id: Int!
+    var id: Int?
     //var originalLanguage: String!
     //var originalTitle: String!
-    //var overview: String!
+    var overview: String?
     //var popularity: Float!
     var posterPath: String?
     var releaseDate: String?

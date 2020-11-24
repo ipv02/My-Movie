@@ -1,5 +1,4 @@
 
-
 import UIKit
 import youtube_ios_player_helper
 
@@ -9,6 +8,7 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate {
     
     var resultVideo: ResultVideo!
     
+    //MARK: - Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -318,7 +318,7 @@
                                     <outlet property="realeseLabel" destination="aYM-Vh-8cm" id="xdq-Dq-yVp"/>
                                     <outlet property="titleLable" destination="Xmw-6r-eCw" id="J7s-tP-nbf"/>
                                     <outlet property="voteLabel" destination="dn7-MX-FXO" id="fPW-CP-TDH"/>
-                                    <segue destination="ajn-pU-ySW" kind="show" identifier="detailsMovie" id="uF6-sI-Dwe"/>
+                                    <segue destination="ajn-pU-ySW" kind="show" id="bkv-2E-lS5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -363,7 +363,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UDe-ND-5Bw" customClass="ImageView" customModule="My_Movie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="580"/>
-                                        <color key="backgroundColor" red="0.59781354669999998" green="0.87524384259999999" blue="0.65721076730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="e03-aQ-NWD">
                                         <rect key="frame" x="8" y="588" width="374" height="741"/>
