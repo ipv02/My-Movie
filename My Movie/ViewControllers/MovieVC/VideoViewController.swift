@@ -12,8 +12,18 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationBar()
+        
         playerView.delegate = self
         playerView.load(withVideoId: resultVideo?.key ?? "")
+    }
+    
+    private func setupNavigationBar() {
+        
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            topItem.backBarButtonItem?.tintColor = .black
+        }
     }
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
