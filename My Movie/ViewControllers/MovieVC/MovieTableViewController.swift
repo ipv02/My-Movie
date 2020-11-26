@@ -50,6 +50,7 @@ class MovieTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    //MARK: - Fetch data movie
     private func fetchData() {
         
         NetworkManager.shared.fetchPopularMovie(from: urlStringPopular) { popular  in

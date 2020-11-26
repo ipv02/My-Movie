@@ -74,8 +74,8 @@ class NetworkManager {
         }.resume()
     }
     
-    //MARK: - Fetch Movie Video
-    func fetchMovieVideo(from urlString: String, with completion: @escaping (Video) -> Void) {
+    //MARK: - Fetch Movie and TV Video
+    func fetchMovieTVVideo(from urlString: String, with completion: @escaping (Video) -> Void) {
 
         guard let url = URL(string: urlString) else { return }
 
@@ -97,7 +97,7 @@ class NetworkManager {
         }.resume()
     }
     
-    //MARK: - Fetch Credits Movie
+    //MARK: - Fetch Credits Movie and TV
     func fetchCredits(from urlString: String, with completion: @escaping (Credits) -> Void) {
 
         guard let url = URL(string: urlString) else { return }
@@ -136,6 +136,50 @@ class NetworkManager {
             do {
                 let popularTV = try decoder.decode(PopularTV.self, from: data)
                 completion(popularTV)
+            } catch let error {
+                print(error.localizedDescription)
+            }
+
+        }.resume()
+    }
+    
+    func fetchTopTV(from urlString: String, with completion: @escaping (TopTV) -> Void) {
+
+        guard let url = URL(string: urlString) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {print(error); return }
+
+            guard let data = data else { return }
+
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            do {
+                let topTV = try decoder.decode(TopTV.self, from: data)
+                completion(topTV)
+            } catch let error {
+                print(error.localizedDescription)
+            }
+
+        }.resume()
+    }
+    
+    func fetchOnTheAir(from urlString: String, with completion: @escaping (OnTheAir) -> Void) {
+
+        guard let url = URL(string: urlString) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {print(error); return }
+
+            guard let data = data else { return }
+
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            do {
+                let onTheAir = try decoder.decode(OnTheAir.self, from: data)
+                completion(onTheAir)
             } catch let error {
                 print(error.localizedDescription)
             }

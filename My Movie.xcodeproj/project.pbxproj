@@ -20,6 +20,10 @@
 		845CE5E8256EF36A00DF6CBF /* TVTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE5E7256EF36A00DF6CBF /* TVTableViewController.swift */; };
 		845CE5EC256EF3D100DF6CBF /* TVTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE5EB256EF3D100DF6CBF /* TVTableViewCell.swift */; };
 		845CE5F0256EF4AA00DF6CBF /* PopularTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE5EF256EF4AA00DF6CBF /* PopularTV.swift */; };
+		845CE5F3257013CA00DF6CBF /* TopTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE5F2257013CA00DF6CBF /* TopTV.swift */; };
+		845CE5F62570162E00DF6CBF /* OnTheAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE5F52570162E00DF6CBF /* OnTheAir.swift */; };
+		845CE5F92570228500DF6CBF /* DetailsTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE5F82570228500DF6CBF /* DetailsTVViewController.swift */; };
+		845CE602257051A300DF6CBF /* ActorsTVTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE601257051A300DF6CBF /* ActorsTVTableViewCell.swift */; };
 		845FF3AE2561B73200932F28 /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3AD2561B73200932F28 /* MovieTableViewController.swift */; };
 		845FF3B22561B7BF00932F28 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3B12561B7BF00932F28 /* MovieTableViewCell.swift */; };
 		845FF3B52561BB5600932F28 /* Popular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3B42561BB5600932F28 /* Popular.swift */; };
@@ -51,6 +55,10 @@
 		845CE5E7256EF36A00DF6CBF /* TVTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVTableViewController.swift; sourceTree = "<group>"; };
 		845CE5EB256EF3D100DF6CBF /* TVTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVTableViewCell.swift; sourceTree = "<group>"; };
 		845CE5EF256EF4AA00DF6CBF /* PopularTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTV.swift; sourceTree = "<group>"; };
+		845CE5F2257013CA00DF6CBF /* TopTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTV.swift; sourceTree = "<group>"; };
+		845CE5F52570162E00DF6CBF /* OnTheAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheAir.swift; sourceTree = "<group>"; };
+		845CE5F82570228500DF6CBF /* DetailsTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTVViewController.swift; sourceTree = "<group>"; };
+		845CE601257051A300DF6CBF /* ActorsTVTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsTVTableViewCell.swift; sourceTree = "<group>"; };
 		845FF3AD2561B73200932F28 /* MovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		845FF3B12561B7BF00932F28 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		845FF3B42561BB5600932F28 /* Popular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popular.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 				845003A7255FE8E300968CBD /* Application */,
 				845003A5255FE8C000968CBD /* Models */,
 				845003A4255FE8B200968CBD /* ViewControllers */,
+				84E45D5A25684CE90018092C /* VideoViewController.swift */,
 				845003A6255FE8CB00968CBD /* Storyboards */,
 				845003AA255FE94D00968CBD /* Services */,
 				845003BE25606E6200968CBD /* Extensions */,
@@ -117,7 +126,7 @@
 			children = (
 				845FF3AB2561B6E200932F28 /* Auth&SignUp */,
 				845CE5E1256EDFC800DF6CBF /* MovieVC */,
-				845CE5E2256EE01B00DF6CBF /* TV Show */,
+				845CE5E2256EE01B00DF6CBF /* TV ShowVC */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -127,6 +136,8 @@
 			children = (
 				845CE5E0256EDF7F00DF6CBF /* MovieModels */,
 				845CE5EE256EF43B00DF6CBF /* TVModels */,
+				84E45D512568483C0018092C /* Video.swift */,
+				84C64D12256DAFD700BC0E2E /* Credit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,8 +192,6 @@
 				845FF3B42561BB5600932F28 /* Popular.swift */,
 				845FF3C22563172300932F28 /* TopList.swift */,
 				845FF3C92564539000932F28 /* Upcoming.swift */,
-				84E45D512568483C0018092C /* Video.swift */,
-				84C64D12256DAFD700BC0E2E /* Credit.swift */,
 			);
 			path = MovieModels;
 			sourceTree = "<group>";
@@ -192,25 +201,26 @@
 			children = (
 				845FF3AD2561B73200932F28 /* MovieTableViewController.swift */,
 				845FF3D72565BFA000932F28 /* DetailsMovieViewController.swift */,
-				84E45D5A25684CE90018092C /* VideoViewController.swift */,
 				845FF3B02561B75A00932F28 /* View */,
 			);
 			path = MovieVC;
 			sourceTree = "<group>";
 		};
-		845CE5E2256EE01B00DF6CBF /* TV Show */ = {
+		845CE5E2256EE01B00DF6CBF /* TV ShowVC */ = {
 			isa = PBXGroup;
 			children = (
 				845CE5E7256EF36A00DF6CBF /* TVTableViewController.swift */,
+				845CE5F82570228500DF6CBF /* DetailsTVViewController.swift */,
 				845CE5EA256EF3B600DF6CBF /* View */,
 			);
-			name = "TV Show";
+			name = "TV ShowVC";
 			sourceTree = "<group>";
 		};
 		845CE5EA256EF3B600DF6CBF /* View */ = {
 			isa = PBXGroup;
 			children = (
 				845CE5EB256EF3D100DF6CBF /* TVTableViewCell.swift */,
+				845CE601257051A300DF6CBF /* ActorsTVTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -219,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				845CE5EF256EF4AA00DF6CBF /* PopularTV.swift */,
+				845CE5F2257013CA00DF6CBF /* TopTV.swift */,
+				845CE5F52570162E00DF6CBF /* OnTheAir.swift */,
 			);
 			path = TVModels;
 			sourceTree = "<group>";
@@ -383,7 +395,10 @@
 				845FF3CD25645B2700932F28 /* ImageView.swift in Sources */,
 				845CE5F0256EF4AA00DF6CBF /* PopularTV.swift in Sources */,
 				8450038F255FE83100968CBD /* AppDelegate.swift in Sources */,
+				845CE5F3257013CA00DF6CBF /* TopTV.swift in Sources */,
 				845003B22560586200968CBD /* SignUpViewController.swift in Sources */,
+				845CE602257051A300DF6CBF /* ActorsTVTableViewCell.swift in Sources */,
+				845CE5F62570162E00DF6CBF /* OnTheAir.swift in Sources */,
 				845003B9256068F000968CBD /* LoginViewController.swift in Sources */,
 				84E45D5B25684CE90018092C /* VideoViewController.swift in Sources */,
 				845FF3B52561BB5600932F28 /* Popular.swift in Sources */,
@@ -393,6 +408,7 @@
 				845FF3AE2561B73200932F28 /* MovieTableViewController.swift in Sources */,
 				845CE5EC256EF3D100DF6CBF /* TVTableViewCell.swift in Sources */,
 				84E45D522568483C0018092C /* Video.swift in Sources */,
+				845CE5F92570228500DF6CBF /* DetailsTVViewController.swift in Sources */,
 				845FF3D82565BFA000932F28 /* DetailsMovieViewController.swift in Sources */,
 				845FF3CA2564539000932F28 /* Upcoming.swift in Sources */,
 				84C64D16256DB27000BC0E2E /* ActorsTableViewCell.swift in Sources */,

@@ -5,7 +5,7 @@ import UIKit
 class DetailsMovieViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet var movieImageView: ImageView!
+    @IBOutlet var movieImageView: UIImageView!
     @IBOutlet var playButton: UIButton!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var overviewLabel: UILabel!
@@ -51,47 +51,74 @@ class DetailsMovieViewController: UIViewController {
     
     //MARK: - Setup details
     private func setupPopularMovieDetails() {
-        movieImageView.fetchImage(from: "https://image.tmdb.org/t/p/w500/\(resultPopular.posterPath ?? "")")
+        
         nameLabel.text = resultPopular.title
         overviewLabel.text = resultPopular.overview
         navigationItem.title = resultPopular.title
         
+        DispatchQueue.global().async {
+            guard let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500/\(self.resultPopular.posterPath ?? "")") else { return }
+            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            
+            DispatchQueue.main.async {
+                self.movieImageView.image = UIImage(data: imageData)
+            }
+        }
+        
     }
     
     private func setupToplistMovieDetails() {
-        movieImageView.fetchImage(from: "https://image.tmdb.org/t/p/w500/\(resultTop.posterPath ?? "")")
+        
         nameLabel.text = resultTop.title
         overviewLabel.text = resultTop.overview
         navigationItem.title = resultTop.title
+        
+        DispatchQueue.global().async {
+            guard let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500/\(self.resultTop.posterPath ?? "")") else { return }
+            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            
+            DispatchQueue.main.async {
+                self.movieImageView.image = UIImage(data: imageData)
+            }
+        }
     }
     
     private func setupUpcomingMovieDetails() {
-        movieImageView.fetchImage(from: "https://image.tmdb.org/t/p/w500/\(resultUpcoming.posterPath ?? "")")
+        
         nameLabel.text = resultUpcoming.title
         overviewLabel.text = resultUpcoming.overview
         navigationItem.title = resultUpcoming.title
+        
+        DispatchQueue.global().async {
+            guard let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500/\(self.resultUpcoming.posterPath ?? "")") else { return }
+            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            
+            DispatchQueue.main.async {
+                self.movieImageView.image = UIImage(data: imageData)
+            }
+        }
     }
     
     //MARK: - Fetch video
     private func fetchPopularVideo() {
-        NetworkManager.shared.fetchMovieVideo(from: "https://api.themoviedb.org/3/movie/\(resultPopular?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
+        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultPopular?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
             self.video = video
         }
     }
     
     private func fetchTopVideo() {
-        NetworkManager.shared.fetchMovieVideo(from: "https://api.themoviedb.org/3/movie/\(resultTop?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
+        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultTop?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
             self.video = video
         }
     }
     
     private func fetchUpcomingVideo() {
-        NetworkManager.shared.fetchMovieVideo(from: "https://api.themoviedb.org/3/movie/\(resultUpcoming?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
+        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultUpcoming?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
             self.video = video
         }
     }
     
-    //MARK: - Fetch Credits
+    //MARK: - Fetch Credits Movie
     private func fetchPopularCredits() {
         NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultPopular.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { credits in
             DispatchQueue.main.async {
@@ -136,13 +163,11 @@ class DetailsMovieViewController: UIViewController {
         playButton.layer.shadowRadius = 4
         playButton.layer.shadowOpacity = 0.2
         playButton.layer.shadowOffset = CGSize(width: 0, height: 4)
-        
-        
     }
     
     // MARK: - Actions
     @IBAction func playButtonAction(_ sender: Any) {
-        performSegue(withIdentifier: "videoSegue", sender: nil)
+        //performSegue(withIdentifier: "videoSegue", sender: nil)
     }
     
     //MARK: - Navigation
