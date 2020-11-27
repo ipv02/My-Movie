@@ -186,4 +186,27 @@ class NetworkManager {
 
         }.resume()
     }
+    
+    //MARK: - Search Movie
+    func fetchDataSearchMovie(from urlString: String, with completion: @escaping (SearchMovie) -> Void) {
+
+        guard let url = URL(string: urlString) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {print(error); return }
+
+            guard let data = data else { return }
+
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            do {
+                let searchMovie = try decoder.decode(SearchMovie.self, from: data)
+                completion(searchMovie)
+            } catch let error {
+                print(error.localizedDescription)
+            }
+
+        }.resume()
+    }
 }
