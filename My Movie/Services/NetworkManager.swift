@@ -209,4 +209,27 @@ class NetworkManager {
 
         }.resume()
     }
+    
+    //MARK: - Search TV Show
+    func fetchDataSearchTVShow(from urlString: String, with completion: @escaping (SearchTVShow) -> Void) {
+
+        guard let url = URL(string: urlString) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {print(error); return }
+
+            guard let data = data else { return }
+
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            do {
+                let searchTVShow = try decoder.decode(SearchTVShow.self, from: data)
+                completion(searchTVShow)
+            } catch let error {
+                print(error.localizedDescription)
+            }
+
+        }.resume()
+    }
 }

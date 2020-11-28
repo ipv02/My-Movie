@@ -629,7 +629,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Movie" id="JkJ-hf-HE6">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="JkJ-hf-HE6">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -711,9 +711,23 @@
                             <outlet property="delegate" destination="Q1g-Ds-epT" id="nby-bU-M91"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="GTt-pd-xPe"/>
+                    <navigationItem key="navigationItem" id="GTt-pd-xPe">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="AmF-gL-AsT">
+                            <rect key="frame" x="121.66666666666669" y="5.6666666666666679" width="147" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Movie"/>
+                                <segment title="TV Show"/>
+                            </segments>
+                            <connections>
+                                <action selector="didChangeSegment:" destination="Q1g-Ds-epT" eventType="valueChanged" id="kf3-lL-raV"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="JkJ-hf-HE6" id="QwJ-Pi-PN1"/>
+                        <outlet property="segmentedControl" destination="AmF-gL-AsT" id="PaC-2J-3B6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQf-OQ-oQl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1058,7 +1072,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="wyY-oT-S06"/>
-        <segue reference="YRO-l4-pEK"/>
+        <segue reference="hcg-Dr-akR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="PlayButton" width="512" height="512"/>
