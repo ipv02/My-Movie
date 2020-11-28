@@ -348,7 +348,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bk6-B4-bCz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3228" y="-1034"/>
+            <point key="canvasLocation" x="3228" y="-636"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="rrC-Rp-bGv">
@@ -602,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znA-dr-qdD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4004.6153846153843" y="-114.45497630331754"/>
+            <point key="canvasLocation" x="4325" y="351"/>
         </scene>
         <!--TV Shows-->
         <scene sceneID="7Jt-tg-leI">
@@ -728,6 +728,8 @@
                     <connections>
                         <outlet property="searchBar" destination="JkJ-hf-HE6" id="QwJ-Pi-PN1"/>
                         <outlet property="segmentedControl" destination="AmF-gL-AsT" id="PaC-2J-3B6"/>
+                        <segue destination="ajn-pU-ySW" kind="show" identifier="searchMovieDetails" id="AIK-i1-Zjv"/>
+                        <segue destination="vOf-SP-Wpq" kind="show" identifier="searchTVDetails" id="qTE-Ts-MVP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQf-OQ-oQl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -895,7 +897,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4f3-AD-vkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4005" y="-1267"/>
+            <point key="canvasLocation" x="4325" y="-869"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="GVi-LG-DtX">
@@ -928,7 +930,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp0-E2-sJv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4783" y="-628"/>
+            <point key="canvasLocation" x="5105" y="-284"/>
         </scene>
         <!--Movie-->
         <scene sceneID="UQV-ey-aP4">
@@ -945,7 +947,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x78-oG-x0X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2462" y="-1034"/>
+            <point key="canvasLocation" x="2462" y="-636"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uZX-o1-L6B">
@@ -1072,7 +1074,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="wyY-oT-S06"/>
-        <segue reference="hcg-Dr-akR"/>
+        <segue reference="YRO-l4-pEK"/>
+        <segue reference="bkv-2E-lS5"/>
+        <segue reference="af4-RH-vN1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="PlayButton" width="512" height="512"/>

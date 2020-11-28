@@ -18,6 +18,8 @@ class DetailsMovieViewController: UIViewController {
     var resultTop: ResultTop!
     var resultUpcoming: ResultUpcoming!
     
+    var resultSearchMovie: ResultSearchMovie!
+    
     //MARK: - Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +32,28 @@ class DetailsMovieViewController: UIViewController {
         setupNavigationBar()
         setupButtonView()
         dataManager()
+        
+        
     }
     
     // MARK: - Private methods
     private func dataManager() {
-        if resultPopular != nil && resultTop == nil && resultUpcoming == nil {
+        if resultPopular != nil && resultTop == nil && resultUpcoming == nil && resultSearchMovie == nil {
             setupPopularMovieDetails()
             fetchPopularVideo()
             fetchPopularCredits()
-        } else if resultTop != nil && resultPopular == nil && resultUpcoming == nil {
+        } else if resultTop != nil && resultPopular == nil && resultUpcoming == nil && resultSearchMovie == nil {
             setupToplistMovieDetails()
             fetchTopVideo()
             fetchTopCredits()
-        } else if resultUpcoming != nil && resultPopular == nil && resultTop == nil {
+        } else if resultUpcoming != nil && resultPopular == nil && resultTop == nil && resultSearchMovie == nil {
             setupUpcomingMovieDetails()
             fetchUpcomingVideo()
             fetchUpcomingCredits()
+        } else if resultSearchMovie != nil && resultPopular == nil && resultTop == nil && resultUpcoming == nil {
+            setupSearchMovieDetails()
+            fetchSearchMovieCredits()
+            fetchSearchMovieVideo()
         }
     }
     
@@ -99,6 +107,24 @@ class DetailsMovieViewController: UIViewController {
         }
     }
     
+    //MARK: - Setup Search Movie Details
+    private func setupSearchMovieDetails() {
+        
+        nameLabel.text = resultSearchMovie.title
+        overviewLabel.text = resultSearchMovie.overview
+        navigationItem.title = resultSearchMovie.title
+        
+        DispatchQueue.global().async {
+            guard let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500/\(self.resultSearchMovie.posterPath ?? "")") else { return }
+            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            
+            DispatchQueue.main.async {
+                self.movieImageView.image = UIImage(data: imageData)
+            }
+        }
+    }
+    
+    
     //MARK: - Fetch video
     private func fetchPopularVideo() {
         NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultPopular?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
@@ -114,6 +140,13 @@ class DetailsMovieViewController: UIViewController {
     
     private func fetchUpcomingVideo() {
         NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultUpcoming?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
+            self.video = video
+        }
+    }
+    
+    //MARK: - Fetch Search Video
+    private func fetchSearchMovieVideo() {
+        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultSearchMovie?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
             self.video = video
         }
     }
@@ -139,6 +172,16 @@ class DetailsMovieViewController: UIViewController {
     
     private func fetchUpcomingCredits() {
         NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultUpcoming.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { credits in
+            DispatchQueue.main.async {
+                self.credits = credits
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    //MARK: - Fetch Search Credits Movie
+    private func fetchSearchMovieCredits() {
+        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultSearchMovie.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { credits in
             DispatchQueue.main.async {
                 self.credits = credits
                 self.tableView.reloadData()

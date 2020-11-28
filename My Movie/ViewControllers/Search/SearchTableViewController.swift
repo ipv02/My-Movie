@@ -34,9 +34,20 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             guard let searchResultTV = searchTVShow?.results?[indexPath.row] else { return cell }
             cell.configureSearchTVShowCell(for: searchResultTV)
         }
-        
-
         return cell
+    }
+    
+    // MARK: - Table view delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            guard let searchMovie = searchMovie?.results?[indexPath.row] else { return }
+            performSegue(withIdentifier: "searchMovieDetails", sender: searchMovie)
+        } else {
+            guard let searchTV = searchTVShow?.results?[indexPath.row] else { return }
+            performSegue(withIdentifier: "searchTVDetails", sender: searchTV)
+        }
     }
     
     //MARK: - Search Bar
@@ -62,14 +73,14 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         tableView.reloadData()
     }
     
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "searchMovieDetails" {
+            let detailsMovieVC = segue.destination as! DetailsMovieViewController
+            detailsMovieVC.resultSearchMovie = sender as? ResultSearchMovie
+        } else {
+            let detailsTVVC = segue.destination as! DetailsTVViewController
+            detailsTVVC.resultSearchTVShow = sender as? ResultSearchTVShow
+        }
     }
-    */
-
 }

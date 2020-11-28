@@ -17,6 +17,8 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
     var resultTopTV: ResultTopTV!
     var resultOnTheAir: ResultOnTheAir!
     
+    var resultSearchTVShow: ResultSearchTVShow!
+    
     //MARK: - Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +35,22 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
     
     // MARK: - Private methods
     private func dataManager() {
-        if resultPopularTV != nil && resultTopTV == nil && resultOnTheAir == nil {
+        if resultPopularTV != nil && resultTopTV == nil && resultOnTheAir == nil && resultSearchTVShow == nil {
             setupPopularTVDetails()
             fetchPopularTVVideo()
             fetchPopularTVCredits()
-        } else if resultTopTV != nil && resultPopularTV == nil && resultOnTheAir == nil {
+        } else if resultTopTV != nil && resultPopularTV == nil && resultOnTheAir == nil && resultSearchTVShow == nil {
             setupTopTVDetails()
             fetchTopTVVideo()
             fetchTopTVCredits()
-        } else if resultOnTheAir != nil && resultPopularTV == nil && resultTopTV == nil {
+        } else if resultOnTheAir != nil && resultPopularTV == nil && resultTopTV == nil && resultSearchTVShow == nil {
             setupOnTheAirDetails()
             fetchOnTheAirVideo()
             fetchOnTheAirTVCredits()
+        } else if resultSearchTVShow != nil && resultPopularTV == nil && resultTopTV == nil && resultOnTheAir == nil {
+            setupSearchTVDetails()
+            fetchSearchTVCredits()
+            fetchSearchTVVideo()
         }
     }
     
@@ -97,6 +103,24 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
         }
     }
     
+    //MARK: - Setup Search Movie Details
+    private func setupSearchTVDetails() {
+        
+        nameLabel.text = resultSearchTVShow.name
+        overviewLabel.text = resultSearchTVShow.overview
+        navigationItem.title = resultSearchTVShow.name
+        
+        DispatchQueue.global().async {
+            guard let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500/\(self.resultSearchTVShow.posterPath ?? "")") else { return }
+            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            
+            DispatchQueue.main.async {
+                self.tvImageView.image = UIImage(data: imageData)
+            }
+        }
+    }
+
+    
     //MARK: - Fetch video TV
     private func fetchPopularTVVideo() {
         NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/tv/\(resultPopularTV.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US" ) { videoTV in
@@ -112,6 +136,13 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
     
     private func fetchOnTheAirVideo() {
         NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/tv/\(resultOnTheAir.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US" ) { videoTV in
+            self.videoTV = videoTV
+        }
+    }
+    
+    //MARK: - Fetch Search video TV
+    private func fetchSearchTVVideo() {
+        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/tv/\(resultSearchTVShow.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US" ) { videoTV in
             self.videoTV = videoTV
         }
     }
@@ -137,6 +168,16 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
     
     private func fetchOnTheAirTVCredits() {
         NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/tv/\(resultOnTheAir.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { creditsTV in
+            DispatchQueue.main.async {
+                self.creditsTV = creditsTV
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    //MARK: - Fetch Search Credits TV
+    private func fetchSearchTVCredits() {
+        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultSearchTVShow.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { creditsTV in
             DispatchQueue.main.async {
                 self.creditsTV = creditsTV
                 self.tableView.reloadData()
