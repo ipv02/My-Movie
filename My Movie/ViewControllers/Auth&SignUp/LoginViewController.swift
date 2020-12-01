@@ -11,6 +11,8 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var signUpButton: UIButton!
     
+    weak var delegate: AuthNavigatingDelegateProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,14 +48,32 @@ class LoginViewController: UIViewController {
         signUpButton.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        
+        AuthService.shared.login(email: emailTextfield.text!,
+                                 password: passwordTextfield.text!) { (result) in
+            switch result {
+            case .success(let user):
+                self.showAlert(with: "Success!", and: "You are logged in!") {
+                    FirestoreService.shared.getUserData(user: user) { (result) in
+                        switch result {
+                        case .success(_):
+                            self.performSegue(withIdentifier: "loginVC", sender: nil)
+                        case .failure(_):
+                            self.performSegue(withIdentifier: "loginVC", sender: nil)
+                        }
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(with: "Error!", and: error.localizedDescription)
+            }
+        }
     }
-    */
-
+    
+    @IBAction func signUpButtonTapped(_ sender: Any) {
+        dismiss(animated: true) {
+            self.delegate?.toSignUpVC()
+        }
+    }
 }

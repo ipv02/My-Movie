@@ -1,11 +1,19 @@
 
 import UIKit
 
+protocol AuthNavigatingDelegateProtocol: class {
+    func toSignUpVC()
+    func toLoginVC()
+}
+
 class AuthViewController: UIViewController {
     
     @IBOutlet var googleButton: UIButton!
     @IBOutlet var emailButton: UIButton!
     @IBOutlet var loginButton: UIButton!
+    
+    let signUpVC = SignUpViewController()
+    let loginVC = LoginViewController()
     
 
     override func viewDidLoad() {
@@ -13,6 +21,9 @@ class AuthViewController: UIViewController {
         
         view.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9921568627, alpha: 1)
         setupButtonView()
+        
+        signUpVC.delegate = self
+        loginVC.delegate = self
         
     }
     //MARK: Setup Buttons View
@@ -52,6 +63,18 @@ class AuthViewController: UIViewController {
     @IBAction func loginButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "logIn", sender: nil)
     }
+    
+}
+
+extension AuthViewController: AuthNavigatingDelegateProtocol {
+    func toSignUpVC() {
+        present(signUpVC, animated: true, completion: nil)
+    }
+    
+    func toLoginVC() {
+        present(loginVC, animated: true, completion: nil)
+    }
+    
     
 }
 

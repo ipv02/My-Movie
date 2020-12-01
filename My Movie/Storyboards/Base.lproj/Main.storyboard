@@ -19,7 +19,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aMc-nY-n0n">
                                 <rect key="frame" x="16" y="390" width="358" height="200"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация через" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZi-9e-3ei">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZi-9e-3ei">
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ZDG-qr-LDP"/>
@@ -60,7 +60,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="4Bh-18-fip">
                                 <rect key="frame" x="16" y="625" width="358" height="110"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMD-uB-Hrk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMD-uB-Hrk">
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="VXz-Rz-6GR"/>
@@ -119,7 +119,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4C-tD-fGR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4C-tD-fGR">
                                 <rect key="frame" x="16" y="91" width="358" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="358" id="08B-ZU-W2I"/>
@@ -132,7 +132,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="ml0-gl-Oyo">
                                 <rect key="frame" x="16" y="211" width="358" height="455"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход через" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cy-Lu-mg7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cy-Lu-mg7">
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ND0-6h-cPy"/>
@@ -153,7 +153,7 @@
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Или" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPN-bj-oIX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPN-bj-oIX">
                                         <rect key="frame" x="0.0" y="139" width="358" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Q3x-97-yma"/>
@@ -162,7 +162,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7Y-lR-2jH">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7Y-lR-2jH">
                                         <rect key="frame" x="0.0" y="191" width="358" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="358" id="88e-vS-SS2"/>
@@ -171,7 +171,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1WT-Tj-4FS">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1WT-Tj-4FS">
                                         <rect key="frame" x="0.0" y="247" width="358" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="9jj-qd-fsv"/>
@@ -192,7 +192,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="FcY-46-OdI" kind="presentation" identifier="loginVC" id="heF-Xw-5aJ"/>
+                                            <action selector="loginButtonTapped:" destination="UPP-Gc-iTn" eventType="touchUpInside" id="trB-b5-MBu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amh-Qv-fQv">
@@ -206,6 +206,9 @@
                                         <state key="normal" title="Sign up">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButtonTapped:" destination="UPP-Gc-iTn" eventType="touchUpInside" id="H8c-BH-5Ru"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -229,6 +232,7 @@
                         <outlet property="loginButton" destination="D1g-ft-eUE" id="V11-Ep-3jB"/>
                         <outlet property="passwordTextfield" destination="1WT-Tj-4FS" id="dIs-u6-18z"/>
                         <outlet property="signUpButton" destination="amh-Qv-fQv" id="2EF-lm-Sg0"/>
+                        <segue destination="FcY-46-OdI" kind="presentation" identifier="loginVC" id="nXK-xH-Y03"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mra-aa-H4X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -713,7 +717,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="GTt-pd-xPe">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="AmF-gL-AsT">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="AmF-gL-AsT">
                             <rect key="frame" x="121.66666666666669" y="5.6666666666666679" width="147" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -935,7 +939,7 @@
         <!--Movie-->
         <scene sceneID="UQV-ey-aP4">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="AHG-EN-feo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="movieVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AHG-EN-feo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Movie" image="list.and.film" catalog="system" id="YaB-EG-UnI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hZU-Sl-zaH">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -981,7 +985,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="TtP-GH-Bgt">
                                 <rect key="frame" x="16" y="219" width="358" height="352"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wey-HB-20z">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wey-HB-20z">
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="358" id="aM8-ZS-r2v"/>
@@ -990,7 +994,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xae-YI-9RX">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xae-YI-9RX">
                                         <rect key="frame" x="0.0" y="64" width="358" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="358" id="Evn-Zg-evJ"/>
@@ -999,7 +1003,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Подтверждение пароля" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S3v-Ej-VZH">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S3v-Ej-VZH">
                                         <rect key="frame" x="0.0" y="128" width="358" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="dpd-A8-aPW"/>
@@ -1020,7 +1024,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="FcY-46-OdI" kind="presentation" identifier="signupVC" id="wyY-oT-S06"/>
+                                            <action selector="signUpButtonTapped:" destination="2lG-XT-h2a" eventType="touchUpInside" id="1UD-kF-Ikv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqu-vT-C5S">
@@ -1034,10 +1038,13 @@
                                         <state key="normal" title="Log in">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="2lG-XT-h2a" eventType="touchUpInside" id="heh-yX-gvQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwL-ZB-L30">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwL-ZB-L30">
                                 <rect key="frame" x="16" y="90" width="358" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="358" id="5cM-zd-2Un"/>
@@ -1065,6 +1072,7 @@
                         <outlet property="logInButton" destination="aqu-vT-C5S" id="nWx-zW-xTY"/>
                         <outlet property="passwordTextfield" destination="xae-YI-9RX" id="J7t-Jn-QWc"/>
                         <outlet property="signUpButton" destination="ExQ-0V-AP5" id="Zed-DW-fEr"/>
+                        <segue destination="FcY-46-OdI" kind="presentation" identifier="signUp" id="bXZ-ms-ShR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcf-Wh-0g1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1073,7 +1081,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wyY-oT-S06"/>
+        <segue reference="nXK-xH-Y03"/>
         <segue reference="YRO-l4-pEK"/>
         <segue reference="bkv-2E-lS5"/>
         <segue reference="af4-RH-vN1"/>
