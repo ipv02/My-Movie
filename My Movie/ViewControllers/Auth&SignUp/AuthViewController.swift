@@ -1,5 +1,6 @@
 
 import UIKit
+import GoogleSignIn
 
 protocol AuthNavigatingDelegateProtocol: class {
     func toSignUpVC()
@@ -19,11 +20,12 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9921568627, alpha: 1)
         setupButtonView()
         
         signUpVC.delegate = self
         loginVC.delegate = self
+        
+        GIDSignIn.sharedInstance()?.delegate = self
         
     }
     //MARK: Setup Buttons View
@@ -64,17 +66,45 @@ class AuthViewController: UIViewController {
         performSegue(withIdentifier: "logIn", sender: nil)
     }
     
+    @IBAction func googleButtonTapped(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.signIn()
+    }
 }
 
 extension AuthViewController: AuthNavigatingDelegateProtocol {
     func toSignUpVC() {
         present(signUpVC, animated: true, completion: nil)
     }
-    
+
     func toLoginVC() {
         present(loginVC, animated: true, completion: nil)
     }
-    
-    
 }
 
+// MARK: - GIDSignInDelegate
+extension AuthViewController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        AuthService.shared.googleLogin(user: user, error: error) { (result) in
+            switch result {
+            case .success(let user):
+                FirestoreService.shared.getUserData(user: user) { (result) in
+                    switch result {
+                    case .success(_):
+                        self.showAlert(with: "Success!", and: "You are logged in") {
+                            self.performSegue(withIdentifier: "loginVC", sender: nil)
+                        }
+                    case .failure(_):
+                        self.showAlert(with: "Success!", and: "You are registered") {
+                            self.performSegue(withIdentifier: "signUp", sender: nil)
+                        }
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(with: "Error!", and: error.localizedDescription)
+            }
+        }
+    }
+}
+
+    

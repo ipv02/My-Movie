@@ -17,7 +17,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9921568627, alpha: 1)
+        Utilities.styleTextfield(emailTextfield)
+        Utilities.styleTextfield(passwordTextfield)
+        Utilities.styleTextfield(confirmPasswordTextfield)
         
         setupTextfieldView()
         setupButtonView()

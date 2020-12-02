@@ -1,5 +1,6 @@
 
 import UIKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -16,7 +17,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9921568627, alpha: 1)
+        Utilities.styleTextfield(emailTextfield)
+        Utilities.styleTextfield(passwordTextfield)
+        
         setupButtonView()
     }
     
@@ -69,6 +72,13 @@ class LoginViewController: UIViewController {
                 self.showAlert(with: "Error!", and: error.localizedDescription)
             }
         }
+    }
+    
+    
+    @IBAction func googleButtonTapped(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.signIn()
+
     }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {

@@ -352,6 +352,7 @@
 				84500388255FE83100968CBD /* Frameworks */,
 				84500389255FE83100968CBD /* Resources */,
 				8F36934F04750244262F7D2D /* [CP] Embed Pods Frameworks */,
+				C8EEB38C76EBF7238BF011DD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -446,6 +447,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-My Movie/Pods-My Movie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8EEB38C76EBF7238BF011DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My Movie/Pods-My Movie-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My Movie/Pods-My Movie-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-My Movie/Pods-My Movie-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
