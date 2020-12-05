@@ -1,6 +1,7 @@
 
 
 import UIKit
+import Kingfisher
 
 class SearchTableViewCell: UITableViewCell {
     
@@ -24,10 +25,11 @@ class SearchTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringUrl = "https://image.tmdb.org/t/p/w500/\(result.posterPath ?? "")"
             guard let imageUrl = URL(string: stringUrl) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            //guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
-                self.searchImageView.image = UIImage(data: imageData)
+                //self.searchImageView.image = UIImage(data: imageData)
+                self.searchImageView.kf.setImage(with: imageUrl)
             }
         }
     }
@@ -41,10 +43,11 @@ class SearchTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringUrl = "https://image.tmdb.org/t/p/w500/\(result.posterPath ?? "")"
             guard let imageUrl = URL(string: stringUrl) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            //guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
-                self.searchImageView.image = UIImage(data: imageData)
+                //self.searchImageView.image = UIImage(data: imageData)
+                self.searchImageView.kf.setImage(with: imageUrl)
             }
         }
     }

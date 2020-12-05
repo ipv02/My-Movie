@@ -2,10 +2,6 @@
 import UIKit
 import GoogleSignIn
 
-protocol AuthNavigatingDelegateProtocol: class {
-    func toSignUpVC()
-    func toLoginVC()
-}
 
 class AuthViewController: UIViewController {
     

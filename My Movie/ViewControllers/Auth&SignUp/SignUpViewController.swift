@@ -17,16 +17,14 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Utilities.styleTextfield(emailTextfield)
-        Utilities.styleTextfield(passwordTextfield)
-        Utilities.styleTextfield(confirmPasswordTextfield)
-        
         setupTextfieldView()
         setupButtonView()
     }
     
     private func setupTextfieldView() {
-        
+        Utilities.styleTextfield(emailTextfield)
+        Utilities.styleTextfield(passwordTextfield)
+        Utilities.styleTextfield(confirmPasswordTextfield)
     }
     
     private func setupButtonView() {

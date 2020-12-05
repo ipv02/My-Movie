@@ -1,5 +1,6 @@
 
 import UIKit
+import Kingfisher
 
 class ActorsTableViewCell: UITableViewCell {
     
@@ -22,10 +23,11 @@ class ActorsTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringUrl = "https://image.tmdb.org/t/p/w500/\(cast.profilePath ?? "")"
             guard let imageUrl = URL(string: stringUrl) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            //guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
-                self.photoImageView.image = UIImage(data: imageData)
+                //self.photoImageView.image = UIImage(data: imageData)
+                self.photoImageView.kf.setImage(with: imageUrl)
             }
         }
     }

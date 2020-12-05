@@ -70,6 +70,7 @@ class DetailsMovieViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.movieImageView.image = UIImage(data: imageData)
+                
             }
         }
         

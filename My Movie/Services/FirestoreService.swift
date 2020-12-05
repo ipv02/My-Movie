@@ -30,4 +30,42 @@ class FirestoreService {
             }
         }
     }
+    
+    func saveProfileWith(id: String,
+                         email: String,
+                         userName: String?,
+                         avatarImage: UIImage?,
+                         sex: String?,
+                         completion: @escaping (Result<UserModel, Error>) -> Void) {
+        guard Validators.isFilledProfile(userName: userName, sex: sex) else {
+            completion(.failure(UserError.notFilled))
+            return
+        }
+
+        var userModel = UserModel(email: email,
+                                  id: id,
+                                  userName: userName!,
+                                  sex: sex!,
+                                  avatarStringUrl: "not exist")
+        StorageService.shared.upload(photo: avatarImage!) { (result) in
+            switch result {
+            case .success(let url):
+                userModel.avatarStringUrl = url.absoluteString
+                self.usersRef.document(userModel.id).setData(userModel.represintation) { (error) in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        completion(.success(userModel))
+                    }
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }
+
+
+
+

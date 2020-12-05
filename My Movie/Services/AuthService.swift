@@ -8,6 +8,7 @@ import GoogleSignIn
 class AuthService {
     
     static let shared = AuthService()
+    
     private let auth = Auth.auth()
     
     //MARK: - Register

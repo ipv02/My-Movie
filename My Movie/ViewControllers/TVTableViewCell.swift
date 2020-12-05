@@ -1,6 +1,7 @@
 
 
 import UIKit
+import Kingfisher
 
 class TVTableViewCell: UITableViewCell {
     
@@ -24,10 +25,11 @@ class TVTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringUrl = "https://image.tmdb.org/t/p/w500/\(result.posterPath ?? "")"
             guard let imageUrl = URL(string: stringUrl) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            //guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
-                self.tvImageView.image = UIImage(data: imageData)
+                //self.tvImageView.image = UIImage(data: imageData)
+                self.tvImageView.kf.setImage(with: imageUrl)
             }
         }
     }
@@ -41,10 +43,11 @@ class TVTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringUrl = "https://image.tmdb.org/t/p/w500/\(result.posterPath ?? "")"
             guard let imageUrl = URL(string: stringUrl) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            //guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
-                self.tvImageView.image = UIImage(data: imageData)
+                //self.tvImageView.image = UIImage(data: imageData)
+                self.tvImageView.kf.setImage(with: imageUrl)
             }
         }
     }
@@ -58,10 +61,11 @@ class TVTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringUrl = "https://image.tmdb.org/t/p/w500/\(result.posterPath ?? "")"
             guard let imageUrl = URL(string: stringUrl) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            //guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
-                self.tvImageView.image = UIImage(data: imageData)
+                //self.tvImageView.image = UIImage(data: imageData)
+                self.tvImageView.kf.setImage(with: imageUrl)
             }
         }
     }
