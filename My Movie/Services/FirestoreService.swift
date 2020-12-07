@@ -15,8 +15,9 @@ class FirestoreService {
     
     var currentUser: UserModel!
     
+    //MARK: - Current User
     func getUserData(user: User, completion: @escaping (Result<UserModel, Error>) -> Void) {
-        let docRef = usersRef.document(user.uid)
+        let docRef = usersRef.document(user.email ?? "")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 guard let userModel = UserModel(document: document) else {
@@ -31,39 +32,41 @@ class FirestoreService {
         }
     }
     
-    func saveProfileWith(id: String,
-                         email: String,
-                         userName: String?,
-                         avatarImage: UIImage?,
-                         sex: String?,
+    //MARK: - Save Profile
+    func saveProfileWith(email: String,
+                         password: String,
                          completion: @escaping (Result<UserModel, Error>) -> Void) {
-        guard Validators.isFilledProfile(userName: userName, sex: sex) else {
+        guard Validators.isFilledProfile(email: email, password: password) else {
             completion(.failure(UserError.notFilled))
             return
         }
 
-        var userModel = UserModel(email: email,
-                                  id: id,
-                                  userName: userName!,
-                                  sex: sex!,
-                                  avatarStringUrl: "not exist")
-        StorageService.shared.upload(photo: avatarImage!) { (result) in
-            switch result {
-            case .success(let url):
-                userModel.avatarStringUrl = url.absoluteString
-                self.usersRef.document(userModel.id).setData(userModel.represintation) { (error) in
-                    if let error = error {
-                        completion(.failure(error))
-                    } else {
-                        completion(.success(userModel))
-                    }
-                }
-            case .failure(let error):
+        let userModel = UserModel(email: email, password: password)
+        
+        self.usersRef.document(userModel.email).setData(userModel.represintation) { (error) in
+            if let error = error {
                 completion(.failure(error))
+            } else {
+                completion(.success(userModel))
             }
         }
+//        
+//        StorageService.shared.upload(photo: avatarImage!) { (result) in
+//            switch result {
+//            case .success(let url):
+//                userModel.avatarStringUrl = url.absoluteString
+//                self.usersRef.document(userModel.id).setData(userModel.represintation) { (error) in
+//                    if let error = error {
+//                        completion(.failure(error))
+//                    } else {
+//                        completion(.success(userModel))
+//                    }
+//                }
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        }
     }
-    
 }
 
 

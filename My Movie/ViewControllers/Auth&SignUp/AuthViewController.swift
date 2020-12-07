@@ -12,7 +12,7 @@ class AuthViewController: UIViewController {
     let signUpVC = SignUpViewController()
     let loginVC = LoginViewController()
     
-
+    //MARK: - Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,8 +22,8 @@ class AuthViewController: UIViewController {
         loginVC.delegate = self
         
         GIDSignIn.sharedInstance()?.delegate = self
-        
     }
+    
     //MARK: Setup Buttons View
     private func setupButtonView() {
         
@@ -68,6 +68,7 @@ class AuthViewController: UIViewController {
     }
 }
 
+//MARK: - Extension
 extension AuthViewController: AuthNavigatingDelegateProtocol {
     func toSignUpVC() {
         present(signUpVC, animated: true, completion: nil)
@@ -88,7 +89,7 @@ extension AuthViewController: GIDSignInDelegate {
                     switch result {
                     case .success(_):
                         self.showAlert(with: "Success!", and: "You are logged in") {
-                            self.performSegue(withIdentifier: "loginVC", sender: nil)
+                            self.performSegue(withIdentifier: "logIn", sender: nil)
                         }
                     case .failure(_):
                         self.showAlert(with: "Success!", and: "You are registered") {

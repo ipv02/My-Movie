@@ -1,6 +1,7 @@
 
 
 import UIKit
+import FirebaseAuth
 
 
 class SignUpViewController: UIViewController {
@@ -14,6 +15,7 @@ class SignUpViewController: UIViewController {
     
     weak var delegate: AuthNavigatingDelegateProtocol?
     
+    //MARK: - Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,7 @@ class SignUpViewController: UIViewController {
         setupButtonView()
     }
     
+    // MARK: - Private methods
     private func setupTextfieldView() {
         Utilities.styleTextfield(emailTextfield)
         Utilities.styleTextfield(passwordTextfield)
@@ -45,7 +48,8 @@ class SignUpViewController: UIViewController {
         logInButton.layer.shadowOpacity = 0.2
         logInButton.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
-        
+    
+    //MARK: IB Action
     @IBAction func signUpButtonTapped(_ sender: Any) {
         
         AuthService.shared.register(email: emailTextfield.text,
@@ -53,6 +57,17 @@ class SignUpViewController: UIViewController {
                                     confirmPassword: confirmPasswordTextfield.text) { (result) in
             switch result {
             case .success(_):
+                
+                FirestoreService.shared.saveProfileWith(email: self.emailTextfield.text!,
+                                                        password: self.passwordTextfield.text!) { (result) in
+                    switch result {
+                    case .success(let userModel):
+                        print(userModel)
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+                
                 self.showAlert(with: "Success", and: "You are registered") {
                     self.performSegue(withIdentifier: "signUp", sender: nil)
                 }

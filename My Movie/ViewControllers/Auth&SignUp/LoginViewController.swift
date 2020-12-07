@@ -1,6 +1,7 @@
 
 import UIKit
 import GoogleSignIn
+import FirebaseAuth
 
 
 class LoginViewController: UIViewController {
@@ -15,6 +16,7 @@ class LoginViewController: UIViewController {
     
     weak var delegate: AuthNavigatingDelegateProtocol?
     
+    //MARK: - Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +26,8 @@ class LoginViewController: UIViewController {
         setupButtonView()
     }
     
+    
+    // MARK: - Private methods
     private func setupButtonView() {
         
         googleButton.layer.cornerRadius = 5
@@ -52,22 +56,15 @@ class LoginViewController: UIViewController {
         signUpButton.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
 
-  
+    //MARK: IB Action
     @IBAction func loginButtonTapped(_ sender: Any) {
         
         AuthService.shared.login(email: emailTextfield.text!,
                                  password: passwordTextfield.text!) { (result) in
             switch result {
-            case .success(let user):
+            case .success(_):
                 self.showAlert(with: "Success!", and: "You are logged in!") {
-                    FirestoreService.shared.getUserData(user: user) { (result) in
-                        switch result {
-                        case .success(_):
-                            self.performSegue(withIdentifier: "loginVC", sender: nil)
-                        case .failure(_):
-                            self.performSegue(withIdentifier: "loginVC", sender: nil)
-                        }
-                    }
+                    self.performSegue(withIdentifier: "loginVC", sender: nil)
                 }
             case .failure(let error):
                 self.showAlert(with: "Error!", and: error.localizedDescription)

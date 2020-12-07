@@ -11,6 +11,7 @@ class DetailsMovieViewController: UIViewController {
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
+    //MARK: - Properties
     private var video: Video?
     private var credits: Credits?
     
@@ -32,8 +33,6 @@ class DetailsMovieViewController: UIViewController {
         setupNavigationBar()
         setupButtonView()
         dataManager()
-        
-        
     }
     
     // MARK: - Private methods
@@ -125,7 +124,6 @@ class DetailsMovieViewController: UIViewController {
         }
     }
     
-    
     //MARK: - Fetch video
     private func fetchPopularVideo() {
         NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultPopular?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
@@ -209,9 +207,8 @@ class DetailsMovieViewController: UIViewController {
         playButton.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
     
-    // MARK: - Actions
+    // MARK: - IB Action
     @IBAction func playButtonAction(_ sender: Any) {
-        //performSegue(withIdentifier: "videoSegue", sender: nil)
     }
     
     //MARK: - Navigation

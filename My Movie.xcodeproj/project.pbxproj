@@ -42,14 +42,11 @@
 		845FF3B82561C95C00932F28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3B72561C95C00932F28 /* NetworkManager.swift */; };
 		845FF3C32563172300932F28 /* TopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3C22563172300932F28 /* TopList.swift */; };
 		845FF3CA2564539000932F28 /* Upcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3C92564539000932F28 /* Upcoming.swift */; };
-		845FF3CD25645B2700932F28 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3CC25645B2700932F28 /* ImageView.swift */; };
-		845FF3D025645B5D00932F28 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3CF25645B5D00932F28 /* ImageManager.swift */; };
 		845FF3D82565BFA000932F28 /* DetailsMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FF3D72565BFA000932F28 /* DetailsMovieViewController.swift */; };
 		84C64D13256DAFD700BC0E2E /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C64D12256DAFD700BC0E2E /* Credit.swift */; };
 		84C64D16256DB27000BC0E2E /* ActorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C64D15256DB27000BC0E2E /* ActorsTableViewCell.swift */; };
 		84D488EE257970A200D9CF86 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D488ED257970A200D9CF86 /* ProfileViewController.swift */; };
 		84D488FC257ACE4100D9CF86 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D488FB257ACE4100D9CF86 /* StorageService.swift */; };
-		84D4891B257AD24100D9CF86 /* Extension UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4891A257AD24100D9CF86 /* Extension UIImage.swift */; };
 		84D4891E257BB60700D9CF86 /* AuthNavigatingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4891D257BB60700D9CF86 /* AuthNavigatingDelegate.swift */; };
 		84E45D522568483C0018092C /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E45D512568483C0018092C /* Video.swift */; };
 		84E45D5B25684CE90018092C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E45D5A25684CE90018092C /* VideoViewController.swift */; };
@@ -93,14 +90,11 @@
 		845FF3B72561C95C00932F28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		845FF3C22563172300932F28 /* TopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopList.swift; sourceTree = "<group>"; };
 		845FF3C92564539000932F28 /* Upcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upcoming.swift; sourceTree = "<group>"; };
-		845FF3CC25645B2700932F28 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
-		845FF3CF25645B5D00932F28 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		845FF3D72565BFA000932F28 /* DetailsMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMovieViewController.swift; sourceTree = "<group>"; };
 		84C64D12256DAFD700BC0E2E /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		84C64D15256DB27000BC0E2E /* ActorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsTableViewCell.swift; sourceTree = "<group>"; };
 		84D488ED257970A200D9CF86 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		84D488FB257ACE4100D9CF86 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
-		84D4891A257AD24100D9CF86 /* Extension UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension UIImage.swift"; sourceTree = "<group>"; };
 		84D4891D257BB60700D9CF86 /* AuthNavigatingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigatingDelegate.swift; sourceTree = "<group>"; };
 		84E45D512568483C0018092C /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		84E45D5A25684CE90018092C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -215,7 +209,6 @@
 				845CE67E2576C1D600DF6CBF /* FirestoreService.swift */,
 				84D488FB257ACE4100D9CF86 /* StorageService.swift */,
 				845CE64E25758AFB00DF6CBF /* Helpers */,
-				845FF3CF25645B5D00932F28 /* ImageManager.swift */,
 				845CE62D25756B0F00DF6CBF /* Utilities.swift */,
 			);
 			path = Services;
@@ -302,7 +295,6 @@
 				845CE64F25758B1E00DF6CBF /* AuthError.swift */,
 				845CE6882576E06800DF6CBF /* UserError.swift */,
 				84D4891D257BB60700D9CF86 /* AuthNavigatingDelegate.swift */,
-				84D4891A257AD24100D9CF86 /* Extension UIImage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -330,7 +322,6 @@
 			children = (
 				845FF3B12561B7BF00932F28 /* MovieTableViewCell.swift */,
 				84C64D15256DB27000BC0E2E /* ActorsTableViewCell.swift */,
-				845FF3CC25645B2700932F28 /* ImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -493,7 +484,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D4891B257AD24100D9CF86 /* Extension UIImage.swift in Sources */,
 				845CE6122571AC1000DF6CBF /* SearchTVShow.swift in Sources */,
 				84D4891E257BB60700D9CF86 /* AuthNavigatingDelegate.swift in Sources */,
 				84C64D13256DAFD700BC0E2E /* Credit.swift in Sources */,
@@ -504,7 +494,6 @@
 				845CE5E8256EF36A00DF6CBF /* TVTableViewController.swift in Sources */,
 				84500393255FE83100968CBD /* AuthViewController.swift in Sources */,
 				845FF3B82561C95C00932F28 /* NetworkManager.swift in Sources */,
-				845FF3CD25645B2700932F28 /* ImageView.swift in Sources */,
 				845CE5F0256EF4AA00DF6CBF /* PopularTV.swift in Sources */,
 				8450038F255FE83100968CBD /* AppDelegate.swift in Sources */,
 				845CE5F3257013CA00DF6CBF /* TopTV.swift in Sources */,
@@ -518,7 +507,6 @@
 				845CE67F2576C1D600DF6CBF /* FirestoreService.swift in Sources */,
 				84E45D5B25684CE90018092C /* VideoViewController.swift in Sources */,
 				845FF3B52561BB5600932F28 /* Popular.swift in Sources */,
-				845FF3D025645B5D00932F28 /* ImageManager.swift in Sources */,
 				84500391255FE83100968CBD /* SceneDelegate.swift in Sources */,
 				845CE60A2571711200DF6CBF /* SearchMovie.swift in Sources */,
 				845FF3B22561B7BF00932F28 /* MovieTableViewCell.swift in Sources */,

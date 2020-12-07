@@ -5,40 +5,23 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
-
     @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var plusButton: UIButton! 
-    @IBOutlet var fullNameTextfield: UITextField!
-    @IBOutlet var segmentedControl: UISegmentedControl!
-    @IBOutlet var saveButton: UIButton!
+    @IBOutlet var plusButton: UIButton!
+    @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var passwordLabel: UILabel!
+    @IBOutlet var logOutButton: UIButton!
     
-    
-//    private let currentUser: User
-//
-//    init(currentUser: User) {
-//        self.currentUser = currentUser
-//        super.init(nibName: nil, bundle: nil)
-//
-//        if let userName = currentUser.displayName {
-//            fullNameTextfield.text = userName
-//        }
-//        if let photoUrl = currentUser.photoURL {
-//            profileImageView.image = .none
-//        }
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
+    //MARK: - Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        emailLabel.text = userModel.email
         
         setupProfileImage()
-
+        setupButtonView()
     }
     
+    //MARK: - Private Methods
     private func setupProfileImage() {
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.masksToBounds = false
@@ -46,7 +29,19 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         profileImageView.clipsToBounds = true
     }
+    
+    private func setupButtonView() {
+        
+        logOutButton.layer.cornerRadius = 5
+        logOutButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        logOutButton.titleLabel?.textColor = .black
+        logOutButton.layer.shadowColor = UIColor.black.cgColor
+        logOutButton.layer.shadowRadius = 4
+        logOutButton.layer.shadowOpacity = 0.2
+        logOutButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+    }
 
+    //MARK: - IB Action
     @IBAction func logOutTapped(_ sender: Any) {
         do {
             try FirebaseAuth.Auth.auth().signOut()
@@ -56,7 +51,6 @@ class ProfileViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func plusButtonTapped(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -64,8 +58,6 @@ class ProfileViewController: UIViewController {
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    
-    @IBAction func saveButtonTapped(_ sender: Any) {
         
 //        FirestoreService.shared.saveProfileWith(id: currentUser.uid,
 //                                                email: currentUser.email!,
@@ -79,9 +71,10 @@ class ProfileViewController: UIViewController {
 //                self.showAlert(with: "Error!", and: error.localizedDescription)
 //            }
 //        }
-    }
+    
 }
 
+//MARK: - Extension
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -90,3 +83,4 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         profileImageView.image = image
     }
 }
+

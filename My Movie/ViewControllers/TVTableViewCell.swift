@@ -11,11 +11,7 @@ class TVTableViewCell: UITableViewCell {
     @IBOutlet var airDateLabel: UILabel!
     
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-
+    //MARK: - PopularTV Cell
     func configurePopularTVCell(for result: ResultPopularTV) {
         
         nameLabel.text = result.name
@@ -25,15 +21,14 @@ class TVTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringUrl = "https://image.tmdb.org/t/p/w500/\(result.posterPath ?? "")"
             guard let imageUrl = URL(string: stringUrl) else { return }
-            //guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
-                //self.tvImageView.image = UIImage(data: imageData)
                 self.tvImageView.kf.setImage(with: imageUrl)
             }
         }
     }
     
+    //MARK: - TopTV Cell
     func configureTopTVCell(for result: ResultTopTV) {
         
         nameLabel.text = result.name
@@ -43,15 +38,14 @@ class TVTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringUrl = "https://image.tmdb.org/t/p/w500/\(result.posterPath ?? "")"
             guard let imageUrl = URL(string: stringUrl) else { return }
-            //guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
-                //self.tvImageView.image = UIImage(data: imageData)
                 self.tvImageView.kf.setImage(with: imageUrl)
             }
         }
     }
     
+    //MARK: - On the air TV Cell
     func configureOnTheAirTVCell(for result: ResultOnTheAir) {
         
         nameLabel.text = result.name
@@ -61,13 +55,10 @@ class TVTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringUrl = "https://image.tmdb.org/t/p/w500/\(result.posterPath ?? "")"
             guard let imageUrl = URL(string: stringUrl) else { return }
-            //guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
-                //self.tvImageView.image = UIImage(data: imageData)
                 self.tvImageView.kf.setImage(with: imageUrl)
             }
         }
     }
-
 }

@@ -6,57 +6,43 @@ import FirebaseFirestore
 
 struct UserModel {
     
+    //var id: String
     var email: String
-    var id: String
-    var userName: String
-    var sex: String
-    var avatarStringUrl: String
+    var password: String
     
     
-    init(email: String, id: String, userName: String, sex: String, avatarStringUrl: String) {
+    init(email: String, password: String) {
+        //self.id = id
         self.email = email
-        self.id = id
-        self.userName = userName
-        self.sex = sex
-        self.avatarStringUrl = avatarStringUrl
+        self.password = password
     }
     
     init?(document: DocumentSnapshot) {
         guard let data = document.data() else { return nil }
         guard let email = data["email"] as? String,
-              let id = data["uid"] as? String,
-              let userName = data["userName"] as? String,
-              let sex = data["sex"] as? String,
-              let avatarStringUrl = data["avatarStringUrl"] as? String else { return nil }
+              //let id = data["uid"] as? String,
+              let password = data["password"] as? String else { return nil }
         
         self.email = email
-        self.id = id
-        self.userName = userName
-        self.sex = sex
-        self.avatarStringUrl = avatarStringUrl
+        //self.id = id
+        self.password = password
     }
     
     init?(document: QueryDocumentSnapshot) {
         let data = document.data()
         guard let email = data["email"] as? String,
-              let id = data["uid"] as? String,
-              let userName = data["userName"] as? String,
-              let sex = data["sex"] as? String,
-              let avatarStringUrl = data["avatarStringUrl"] as? String else { return nil }
+              //let id = data["uid"] as? String,
+              let password = data["password"] as? String else { return nil }
         
         self.email = email
-        self.id = id
-        self.userName = userName
-        self.sex = sex
-        self.avatarStringUrl = avatarStringUrl
+        //self.id = id
+        self.password = password
     }
     
     var represintation: [String: Any] {
         var rep = ["email": email]
-        rep["uid"] = id
-        rep["userName"] = userName
-        rep["sex"] = sex
-        rep["avatarStringUrl"] = avatarStringUrl
+        //rep["uid"] = id
+        rep["password"] = password
         return rep
     }
 }

@@ -10,6 +10,7 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
+    //MARK: - Properties
     private var videoTV: Video?
     private var creditsTV: Credits?
     
@@ -30,7 +31,6 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
         dataManager()
         setupNavigationBar()
         setupButtonView()
-
     }
     
     // MARK: - Private methods
@@ -120,7 +120,6 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
         }
     }
 
-    
     //MARK: - Fetch video TV
     private func fetchPopularTVVideo() {
         NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/tv/\(resultPopularTV.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US" ) { videoTV in
@@ -205,10 +204,8 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
     }
     
     
-    
+    // MARK: - IB Action
     @IBAction func playButtonTVAction(_ sender: Any) {
-        //performSegue(withIdentifier: "videoTVSegue", sender: nil)
-        
     }
     
     //MARK: - Navigation
@@ -220,6 +217,7 @@ class DetailsTVViewController: UIViewController, UITableViewDelegate {
     }
 }
 
+//MARK: - Extension
 extension DetailsTVViewController: UITabBarDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -242,7 +240,4 @@ extension DetailsTVViewController: UITabBarDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Actors"
     }
-    
-    
-    
 }

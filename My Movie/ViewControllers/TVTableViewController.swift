@@ -6,7 +6,7 @@ class TVTableViewController: UITableViewController {
     
     @IBOutlet var segmentedControl: UISegmentedControl!
     
-    // MARK: - Private propertys
+    //MARK: - Properties
     private let popularTVUrl = "https://api.themoviedb.org/3/tv/popular?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
     private let topTVUrl = "https://api.themoviedb.org/3/tv/top_rated?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
     private let onTheAirUrl = "https://api.themoviedb.org/3/tv/on_the_air?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1"
@@ -22,7 +22,6 @@ class TVTableViewController: UITableViewController {
         tableView.rowHeight = 100
         
         fetchDataTV()
-
     }
 
     // MARK: - Table view data source
@@ -43,8 +42,6 @@ class TVTableViewController: UITableViewController {
             guard let onTheAirTV = onTheAir?.results?[indexPath.row] else { return cell }
             cell.configureOnTheAirTVCell(for: onTheAirTV)
         }
-
-
         return cell
     }
     
@@ -73,7 +70,7 @@ class TVTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Actions
+    // MARK: - IB Action
     @IBAction func didChangedSegment(_ sender: UISegmentedControl) {
         tableView.reloadData()
     }
@@ -97,5 +94,4 @@ class TVTableViewController: UITableViewController {
             detailsTVVC.resultTopTV = nil
         }
     }
-
 }

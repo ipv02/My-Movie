@@ -5,6 +5,7 @@ import Foundation
 
 class Validators {
     
+    //MARK: - Textfields Validate
     static func isFilled(email: String?, password: String?, confirmPassword: String?) -> Bool {
         
         guard let email = email,
@@ -19,8 +20,9 @@ class Validators {
         return true
     }
     
-    static func isFilledProfile(userName: String?, sex: String?) -> Bool {
-        guard let userName = userName, let sex = sex, userName != "", sex != "" else { return false }
+    //MARK: - Email & Pass Validate
+    static func isFilledProfile(email: String?, password: String?) -> Bool {
+        guard let email = email, let password = password, email != "", password != "" else { return false }
         return true
     }
     

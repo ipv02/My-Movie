@@ -75,7 +75,7 @@ class MovieTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Actions
+    // MARK: - IB Action
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         tableView.reloadData()
     }

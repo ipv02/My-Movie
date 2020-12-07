@@ -7,6 +7,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var searchBar: UISearchBar!
     
+    //MARK: - Properties
     private var searchMovie: SearchMovie?
     private var searchTVShow: SearchTVShow?
 
