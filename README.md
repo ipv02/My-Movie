@@ -24,12 +24,12 @@ An application for searching movies and TV series with the display of detailed i
 <p align="center">
 <img src="https://github.com/ipv02/MyMovie/blob/main/screenshots/Auth.png" width="699px" height="435px"/></p>
 
-#### Movie and TV Show Screen
+#### Movie and TV Show screen
 
 <p align="center">
 <img src="https://github.com/ipv02/MyMovie/blob/main/screenshots/Movie%26TV.png" width="457px" height="430px"/></p>
 
-#### Details Screen
+#### Details screen
 
 <p align="center">
 <img src="https://github.com/ipv02/MyMovie/blob/main/screenshots/Details.png" width="457px" height="430px"/></p>
