@@ -103,14 +103,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4Bh-18-fip" firstAttribute="top" secondItem="aMc-nY-n0n" secondAttribute="bottom" constant="35" id="0aP-KL-CZx"/>
-                            <constraint firstItem="4Bh-18-fip" firstAttribute="top" secondItem="aMc-nY-n0n" secondAttribute="bottom" constant="35" id="2oR-UO-1Xm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Bh-18-fip" secondAttribute="trailing" constant="16" id="A5E-Ru-tpp"/>
                             <constraint firstItem="EUr-Hm-aSy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ek6-2h-Gie"/>
                             <constraint firstItem="4Bh-18-fip" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="IBw-d9-5rS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aMc-nY-n0n" secondAttribute="trailing" constant="16" id="K4f-Oh-ME9"/>
                             <constraint firstItem="EUr-Hm-aSy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MtS-mm-kam"/>
                             <constraint firstItem="EUr-Hm-aSy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Rgb-zm-1SO"/>
-                            <constraint firstItem="aMc-nY-n0n" firstAttribute="top" secondItem="EUr-Hm-aSy" secondAttribute="bottom" constant="8" symbolic="YES" id="Uzj-5D-zMp"/>
+                            <constraint firstItem="aMc-nY-n0n" firstAttribute="top" relation="lessThanOrEqual" secondItem="EUr-Hm-aSy" secondAttribute="bottom" constant="8" symbolic="YES" id="Uzj-5D-zMp"/>
                             <constraint firstItem="EUr-Hm-aSy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WKt-Ma-oqR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4Bh-18-fip" secondAttribute="bottom" constant="75" id="WV3-Ly-c1u"/>
                             <constraint firstItem="aMc-nY-n0n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Xfz-Bb-IIV"/>
@@ -244,7 +243,7 @@
                             <constraint firstItem="ml0-gl-Oyo" firstAttribute="top" secondItem="b4C-tD-fGR" secondAttribute="bottom" constant="90" id="Emk-xa-21u"/>
                             <constraint firstItem="vj6-tK-iFf" firstAttribute="trailing" secondItem="b4C-tD-fGR" secondAttribute="trailing" constant="16" id="pEV-kY-3k9"/>
                             <constraint firstItem="b4C-tD-fGR" firstAttribute="leading" secondItem="vj6-tK-iFf" secondAttribute="leading" constant="16" id="qW7-L7-DQd"/>
-                            <constraint firstItem="b4C-tD-fGR" firstAttribute="top" secondItem="vj6-tK-iFf" secondAttribute="top" constant="91" id="vGh-kf-v28"/>
+                            <constraint firstItem="b4C-tD-fGR" firstAttribute="top" relation="lessThanOrEqual" secondItem="vj6-tK-iFf" secondAttribute="top" constant="91" id="vGh-kf-v28"/>
                             <constraint firstItem="vj6-tK-iFf" firstAttribute="bottom" secondItem="ml0-gl-Oyo" secondAttribute="bottom" constant="90" id="zP5-Sd-Y0i"/>
                         </constraints>
                     </view>
@@ -1231,8 +1230,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="nXK-xH-Y03"/>
         <segue reference="YRO-l4-pEK"/>
-        <segue reference="AIK-i1-Zjv"/>
-        <segue reference="qTE-Ts-MVP"/>
+        <segue reference="bkv-2E-lS5"/>
+        <segue reference="af4-RH-vN1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="My Movie logo" width="700" height="440"/>

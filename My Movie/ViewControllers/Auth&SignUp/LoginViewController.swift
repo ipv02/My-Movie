@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     // MARK: - Private methods
     private func setupButtonView() {
         
-        googleButton.layer.cornerRadius = 5
+        googleButton.layer.cornerRadius = 7
         googleButton.backgroundColor = .white
         googleButton.titleLabel?.textColor = .black
         googleButton.layer.shadowColor = UIColor.black.cgColor
@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
         googleButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         googleButton.customizeGoogleButton()
         
-        loginButton.layer.cornerRadius = 5
+        loginButton.layer.cornerRadius = 7
         loginButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         loginButton.titleLabel?.textColor = .black
         loginButton.layer.shadowColor = UIColor.black.cgColor
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
         loginButton.layer.shadowOpacity = 0.2
         loginButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         
-        signUpButton.layer.cornerRadius = 5
+        signUpButton.layer.cornerRadius = 7
         signUpButton.backgroundColor = .white
         signUpButton.titleLabel?.textColor = .black
         signUpButton.layer.shadowColor = UIColor.black.cgColor
@@ -55,8 +55,8 @@ class LoginViewController: UIViewController {
         signUpButton.layer.shadowOpacity = 0.2
         signUpButton.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
-
-    //MARK: IB Action
+    
+    //MARK: - IB Action
     @IBAction func loginButtonTapped(_ sender: Any) {
         
         AuthService.shared.login(email: emailTextfield.text!,
@@ -71,7 +71,6 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
     
     @IBAction func googleButtonTapped(_ sender: Any) {
         GIDSignIn.sharedInstance()?.presentingViewController = self

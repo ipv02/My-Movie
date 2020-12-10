@@ -32,7 +32,7 @@ class SignUpViewController: UIViewController {
     
     private func setupButtonView() {
         
-        signUpButton.layer.cornerRadius = 5
+        signUpButton.layer.cornerRadius = 7
         signUpButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         signUpButton.titleLabel?.textColor = .black
         signUpButton.layer.shadowColor = UIColor.black.cgColor
@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
         signUpButton.layer.shadowOpacity = 0.2
         signUpButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         
-        logInButton.layer.cornerRadius = 5
+        logInButton.layer.cornerRadius = 7
         logInButton.backgroundColor = .white
         logInButton.titleLabel?.textColor = .black
         logInButton.layer.shadowColor = UIColor.black.cgColor

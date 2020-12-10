@@ -15,8 +15,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        emailLabel.text = userModel.email
-        
         setupProfileImage()
         setupButtonView()
     }
@@ -32,7 +30,7 @@ class ProfileViewController: UIViewController {
     
     private func setupButtonView() {
         
-        logOutButton.layer.cornerRadius = 5
+        logOutButton.layer.cornerRadius = 7
         logOutButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         logOutButton.titleLabel?.textColor = .black
         logOutButton.layer.shadowColor = UIColor.black.cgColor
@@ -57,21 +55,6 @@ class ProfileViewController: UIViewController {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
     }
-    
-        
-//        FirestoreService.shared.saveProfileWith(id: currentUser.uid,
-//                                                email: currentUser.email!,
-//                                                userName: fullNameTextfield.text,
-//                                                avatarImage: profileImageView.image,
-//                                                sex: segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)) { (result) in
-//            switch result {
-//            case .success(_):
-//                self.showAlert(with: "Success!", and: "Data saved")
-//            case .failure(let error):
-//                self.showAlert(with: "Error!", and: error.localizedDescription)
-//            }
-//        }
-    
 }
 
 //MARK: - Extension
