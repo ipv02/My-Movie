@@ -17,16 +17,8 @@ class NetworkManager {
             
             guard let data = data else { return }
             
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            do {
-                let popular = try decoder.decode(Popular.self, from: data)
-                completion(popular)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-            
+            guard let popular = self.decodeJSON(type: Popular.self, from: data) else { return }
+            completion(popular)
         }.resume()
     }
     
@@ -39,16 +31,8 @@ class NetworkManager {
             
             guard let data = data else { return }
             
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            do {
-                let topList = try decoder.decode(TopList.self, from: data)
-                completion(topList)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-            
+            guard let topList = self.decodeJSON(type: TopList.self, from: data) else { return }
+            completion(topList)
         }.resume()
     }
     
@@ -61,16 +45,8 @@ class NetworkManager {
             
             guard let data = data else { return }
             
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            do {
-                let upcoming = try decoder.decode(Upcoming.self, from: data)
-                completion(upcoming)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-            
+            guard let upcoming = self.decodeJSON(type: Upcoming.self, from: data) else { return }
+            completion(upcoming)
         }.resume()
     }
     
@@ -83,17 +59,9 @@ class NetworkManager {
             if let error = error {print(error); return }
 
             guard let data = data else { return }
-
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-            do {
-                let video = try decoder.decode(Video.self, from: data)
-                completion(video)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-
+            
+            guard let video = self.decodeJSON(type: Video.self, from: data) else { return }
+            completion(video)
         }.resume()
     }
     
@@ -106,17 +74,9 @@ class NetworkManager {
             if let error = error {print(error); return }
 
             guard let data = data else { return }
-
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-            do {
-                let credits = try decoder.decode(Credits.self, from: data)
-                completion(credits)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-
+            
+            guard let credits = self.decodeJSON(type: Credits.self, from: data) else { return }
+            completion(credits)
         }.resume()
     }
     
@@ -129,17 +89,9 @@ class NetworkManager {
             if let error = error {print(error); return }
 
             guard let data = data else { return }
-
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-            do {
-                let popularTV = try decoder.decode(PopularTV.self, from: data)
-                completion(popularTV)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-
+            
+            guard let popularTV = self.decodeJSON(type: PopularTV.self, from: data) else { return }
+            completion(popularTV)
         }.resume()
     }
     
@@ -151,17 +103,9 @@ class NetworkManager {
             if let error = error {print(error); return }
 
             guard let data = data else { return }
-
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-            do {
-                let topTV = try decoder.decode(TopTV.self, from: data)
-                completion(topTV)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-
+            
+            guard let topTV = self.decodeJSON(type: TopTV.self, from: data) else { return }
+            completion(topTV)
         }.resume()
     }
     
@@ -173,17 +117,9 @@ class NetworkManager {
             if let error = error {print(error); return }
 
             guard let data = data else { return }
-
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-            do {
-                let onTheAir = try decoder.decode(OnTheAir.self, from: data)
-                completion(onTheAir)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-
+            
+            guard let onTheAir = self.decodeJSON(type: OnTheAir.self, from: data) else { return }
+            completion(onTheAir)
         }.resume()
     }
     
@@ -196,17 +132,9 @@ class NetworkManager {
             if let error = error {print(error); return }
 
             guard let data = data else { return }
-
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-            do {
-                let searchMovie = try decoder.decode(SearchMovie.self, from: data)
-                completion(searchMovie)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-
+            
+            guard let searchMoview = self.decodeJSON(type: SearchMovie.self, from: data) else { return }
+            completion(searchMoview)
         }.resume()
     }
     
@@ -219,17 +147,23 @@ class NetworkManager {
             if let error = error {print(error); return }
 
             guard let data = data else { return }
-
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-            do {
-                let searchTVShow = try decoder.decode(SearchTVShow.self, from: data)
-                completion(searchTVShow)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-
+            
+            guard let searchTVShow = self.decodeJSON(type: SearchTVShow.self, from: data) else { return }
+            completion(searchTVShow)
         }.resume()
+    }
+    
+    private func decodeJSON<T: Decodable>(type: T.Type, from: Data?) -> T? {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        guard let data = from else { return nil }
+        
+        do {
+            let object = try decoder.decode(type.self, from: data)
+            return object
+        } catch let error {
+            print(error)
+            return nil
+        }
     }
 }
