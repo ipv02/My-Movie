@@ -126,33 +126,38 @@ class DetailsMovieViewController: UIViewController {
     
     //MARK: - Fetch video
     private func fetchPopularVideo() {
-        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultPopular?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
+        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultPopular?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { [weak self] video in
+            guard let self = self else { return }
             self.video = video
         }
     }
     
     private func fetchTopVideo() {
-        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultTop?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
+        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultTop?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { [weak self] video in
+            guard let self = self else { return }
             self.video = video
         }
     }
     
     private func fetchUpcomingVideo() {
-        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultUpcoming?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
+        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultUpcoming?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { [weak self] video in
+            guard let self = self else { return }
             self.video = video
         }
     }
     
     //MARK: - Fetch Search Video
     private func fetchSearchMovieVideo() {
-        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultSearchMovie?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { video in
+        NetworkManager.shared.fetchMovieTVVideo(from: "https://api.themoviedb.org/3/movie/\(resultSearchMovie?.id ?? 0)/videos?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { [weak self] video in
+            guard let self = self else { return }
             self.video = video
         }
     }
     
     //MARK: - Fetch Credits Movie
     private func fetchPopularCredits() {
-        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultPopular.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { credits in
+        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultPopular.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { [weak self] credits in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.credits = credits
                 self.tableView.reloadData()
@@ -161,7 +166,8 @@ class DetailsMovieViewController: UIViewController {
     }
     
     private func fetchTopCredits() {
-        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultTop.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { credits in
+        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultTop.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { [weak self] credits in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.credits = credits
                 self.tableView.reloadData()
@@ -170,7 +176,8 @@ class DetailsMovieViewController: UIViewController {
     }
     
     private func fetchUpcomingCredits() {
-        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultUpcoming.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { credits in
+        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultUpcoming.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { [weak self] credits in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.credits = credits
                 self.tableView.reloadData()
@@ -180,7 +187,8 @@ class DetailsMovieViewController: UIViewController {
     
     //MARK: - Fetch Search Credits Movie
     private func fetchSearchMovieCredits() {
-        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultSearchMovie.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { credits in
+        NetworkManager.shared.fetchCredits(from: "https://api.themoviedb.org/3/movie/\(resultSearchMovie.id ?? 0)/credits?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US") { [weak self] credits in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.credits = credits
                 self.tableView.reloadData()

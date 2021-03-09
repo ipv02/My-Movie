@@ -53,21 +53,24 @@ class MovieTableViewController: UITableViewController {
     //MARK: - Fetch data movie
     private func fetchData() {
         
-        NetworkManager.shared.fetchPopularMovie(from: urlStringPopular) { popular  in
+        NetworkManager.shared.fetchPopularMovie(from: urlStringPopular) { [weak self] popular  in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.popular = popular
                 self.tableView.reloadData()
             }
         }
         
-        NetworkManager.shared.fetchTopListMovie(from: urlStringTopList) { topList in
+        NetworkManager.shared.fetchTopListMovie(from: urlStringTopList) { [weak self] topList in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.topList = topList
                 self.tableView.reloadData()
             }
         }
         
-        NetworkManager.shared.fetchUpcomingMovie(from: urlStringUpcoming) { upcoming in
+        NetworkManager.shared.fetchUpcomingMovie(from: urlStringUpcoming) { [weak self] upcoming in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.upcoming = upcoming
                 self.tableView.reloadData()

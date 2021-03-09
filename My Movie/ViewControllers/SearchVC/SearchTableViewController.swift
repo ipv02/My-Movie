@@ -54,14 +54,16 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     //MARK: - Search Bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        NetworkManager.shared.fetchDataSearchMovie(from: "https://api.themoviedb.org/3/search/movie?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&query=\(searchText)&page=1&include_adult=false") { searchMovie in
+        NetworkManager.shared.fetchDataSearchMovie(from: "https://api.themoviedb.org/3/search/movie?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&query=\(searchText)&page=1&include_adult=false") { [weak self] searchMovie in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.searchMovie = searchMovie
                 self.tableView.reloadData()
             }
         }
         
-        NetworkManager.shared.fetchDataSearchTVShow(from: "https://api.themoviedb.org/3/search/tv?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1&query=\(searchText)&include_adult=false") { searchTVShow in
+        NetworkManager.shared.fetchDataSearchTVShow(from: "https://api.themoviedb.org/3/search/tv?api_key=0a5763bed0839ef86647f9283eccf5dc&language=en-US&page=1&query=\(searchText)&include_adult=false") { [weak self] searchTVShow in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.searchTVShow = searchTVShow
                 self.tableView.reloadData()

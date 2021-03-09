@@ -48,21 +48,24 @@ class TVTableViewController: UITableViewController {
     //MARK: - Fetch data TV
     private func fetchDataTV() {
         
-        NetworkManager.shared.fetchPopularTV(from: popularTVUrl) { popularTV in
+        NetworkManager.shared.fetchPopularTV(from: popularTVUrl) { [weak self] popularTV in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.popularTV = popularTV
                 self.tableView.reloadData()
             }
         }
         
-        NetworkManager.shared.fetchTopTV(from: topTVUrl) { topTV in
+        NetworkManager.shared.fetchTopTV(from: topTVUrl) { [weak self] topTV in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.topTV = topTV
                 self.tableView.reloadData()
             }
         }
         
-        NetworkManager.shared.fetchOnTheAir(from: onTheAirUrl) { onTheAir in
+        NetworkManager.shared.fetchOnTheAir(from: onTheAirUrl) { [weak self] onTheAir in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.onTheAir = onTheAir
                 self.tableView.reloadData()
